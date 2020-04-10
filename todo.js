@@ -7,6 +7,7 @@ const delete_todo_caller = require('./delete_todo')
 const update_todo_caller = require('./update_todo')
 const check_todo_caller = require('./check_todo')
 const uncheck_todo_caller = require('./uncheck_todo')
+const help_todo_caller = require('./help')
 
 var myArgs = process.argv.slice(2);
 
@@ -113,6 +114,11 @@ for(i=0; i < myArgs.length; i+=2){
         case "--uncheck":
             var uncheck_id  = process.argv.slice(3)
             uncheck_todo_caller.uncheck_todo(uncheck_id)
+        break;
+        
+        case "--help":
+            help_function = help_todo_caller.help()
+            console.log(help_function);
         break;
         default:
             // wrong message for the cx
