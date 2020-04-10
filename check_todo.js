@@ -8,15 +8,17 @@ function check_todo(todo_id){
     for(i=0; i < all_todo_data.length-1; i++){
         line_json = JSON.parse(all_todo_data[i]);
         if(line_json['id'] == todo_id){
-            if(line_json['checked'] == true)
-                console.log("Already checked todo item");
+            if(line_json['checked'] == true){
+                console.log("Already checked todo item.");
+                new_items[i] = all_todo_data[i]
+            }
             else if(line_json['checked'] == false){
                 line_json['checked'] = true
                 new_line_json = JSON.stringify(line_json)
                 new_items.push(new_line_json)
             }
         } else if(line_json['id'] != todo_id){
-            new_items[i] = all_todo_data[i]
+            new_items.push(all_todo_data[i])
         }
     }
 
