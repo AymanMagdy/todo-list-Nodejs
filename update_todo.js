@@ -12,7 +12,7 @@ function update_todo(todo_id, new_title, new_body){
             new_items[i] = all_todo_data[i]
         } else if(line_json['id'] == todo_id){
             line_json['title'] = new_title;
-            line_json['body'] = new_body
+            line_json['content'] = new_body
             new_line_json = JSON.stringify(line_json)
             new_items.push(new_line_json)
         }
